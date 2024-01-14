@@ -134,10 +134,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  var countdownDate = new Date("Jan 31, 2024 00:00:00").getTime();
+  document.addEventListener("DOMContentLoaded", function () {
+    var countdownDate = new Date("Jan 31, 2024 00:00:00").getTime();
 
-  // Update the countdown every second
-  var x = setInterval(function() {
+    // Update the countdown every second
+    var x = setInterval(function() {
       var now = new Date().getTime();
       var distance = countdownDate - now;
 
@@ -146,11 +147,21 @@ document.addEventListener('DOMContentLoaded', function () {
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       // Display the countdown
-      document.getElementById("countdown").innerHTML = `<p>${hours} h</p> <span>:</span> <p>${minutes} m</p> <span>:</span> <p>${seconds} s</p>`;
+      document.getElementById("hours").innerText = formatTime(hours);
+      document.getElementById("minutes").innerText = formatTime(minutes);
+      document.getElementById("seconds").innerText = formatTime(seconds);
 
       // If the countdown is over, display a message
       if (distance < 0) {
-          clearInterval(x);
-          document.getElementById("countdown").innerHTML = "EXPIRED";
+        clearInterval(x);
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
       }
-  }, 1000);
+    }, 1000);
+
+    function formatTime(time) {
+      return time < 10 ? "0" + time : time;
+    }
+  });
+
