@@ -218,13 +218,13 @@ footer {
     font-weight: bold;
     font-size: 2rem;
     line-height: 1;
-    margin: 0.5rem 2rem;
+    margin: 0.5rem 0.5rem;
 }
 
 .countdown-desc {
     font-size: 18px;
     font-weight: bold;
-    margin-top: 10px; /* Adjusted margin for better spacing */
+    margin-top: 5px; /* Adjusted margin for better spacing */
 }
 
 
