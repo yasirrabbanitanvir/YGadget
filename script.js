@@ -112,46 +112,35 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-  // Wait for the document to be fully loaded
   document.addEventListener("DOMContentLoaded", function () {
-    // Get all showcase elements
     var showcases = document.querySelectorAll(".showcase");
 
-    // Loop through each showcase
     showcases.forEach(function (showcase) {
-      // Add event listeners for mouseenter and mouseleave
       showcase.addEventListener("mouseenter", function () {
-        // Change border color and add box shadow on hover
-        showcase.style.borderColor = "#3498db"; // Change border color to your desired color
-        showcase.style.boxShadow = "0 0 10px rgba(52, 152, 219, 0.5)"; // Add a subtle shadow
+        showcase.style.borderColor = "#3498db"; 
+        showcase.style.boxShadow = "0 0 10px rgba(52, 152, 219, 0.5)";
       });
 
       showcase.addEventListener("mouseleave", function () {
        
         showcase.style.borderColor = "#ddd"; 
-        showcase.style.boxShadow = "none"; // Remove box shadow
+        showcase.style.boxShadow = "none";
       });
     });
   });
 
   document.addEventListener("DOMContentLoaded", function () {
     var countdownDate = new Date("Jan 31, 2024 00:00:00").getTime();
-
-    // Update the countdown every second
     var x = setInterval(function() {
       var now = new Date().getTime();
       var distance = countdownDate - now;
-
       var hours = Math.floor(distance / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Display the countdown
       document.getElementById("hours").innerText = formatTime(hours);
       document.getElementById("minutes").innerText = formatTime(minutes);
       document.getElementById("seconds").innerText = formatTime(seconds);
 
-      // If the countdown is over, display a message
       if (distance < 0) {
         clearInterval(x);
         document.getElementById("hours").innerText = "00";
